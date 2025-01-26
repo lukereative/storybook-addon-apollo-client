@@ -29,10 +29,12 @@
       "require": "./dist/preview.cjs"
     },
     "./manager": "./dist/manager.js",
+    "./preset-vue": "./preset-vue.js",
     "./package.json": "./package.json"
   },
   "files": [
     "dist/**/*",
+    "src/**/*",
     "README.md",
     "*.js",
     "*.d.ts"
@@ -46,7 +48,8 @@
     "format": "prettier --write .",
     "release": "npm run build && auto shipit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "pnpm build"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "8.5.1",
@@ -82,7 +85,8 @@
   },
   "bundler": {
     "exportEntries": [
-      "src/index.ts"
+      "src/index.ts",
+      "src/preset-vue/index.ts"
     ],
     "managerEntries": [
       "src/manager.tsx"
@@ -98,5 +102,6 @@
       "react"
     ],
     "icon": "https://raw.githubusercontent.com/apollographql/apollo-client-devtools/main/assets/apollo-wordmark.svg"
-  }
+  },
+  "packageManager": "pnpm@7.33.7+sha512.7afe2410642b39c698df46da4ce5c7231a5cce360698d69f8cf8f42257d40b3e43f231053b07b8de849fd4ffbf4a71ff57b835137777a352388f3d3da747200e"
 }
